@@ -11,7 +11,7 @@ import com.taskmanager.service.TaskService;
 import com.taskmanager.service.UserService;
 
 import java.security.Principal;
-
+//teszt
 @Controller
 public class ProfileController {
 
