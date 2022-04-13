@@ -44,5 +44,6 @@ public class ProfileController {
         taskService.setTaskNotCompleted(taskId);
         return "redirect:/profile";
     }
+   
 
 }
