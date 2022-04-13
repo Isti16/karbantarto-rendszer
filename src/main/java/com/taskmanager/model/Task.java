@@ -33,8 +33,7 @@ public class Task {
     @ManyToOne
     @JoinColumn(name = "OWNER_ID")
     private User owner;
-    @NotEmpty(message = "{task.name.not.empty}")
-    private String category; 
+
 
     public long daysLeftUntilDeadline(LocalDate date) {
         return ChronoUnit.DAYS.between(LocalDate.now(), date);
@@ -47,14 +46,13 @@ public class Task {
                 @NotEmpty @Size(max = 1200) String description,
                 @NotNull LocalDate date,
                 boolean isCompleted,
-                String creatorName,
-                @NotEmpty String category) {
+                String creatorName) {
         this.name = name;
         this.description = description;
         this.date = date;
         this.isCompleted = isCompleted;
         this.creatorName = creatorName;
-        this.category = category;
+      
     }
 
     public Task(@NotEmpty String name,
@@ -62,15 +60,14 @@ public class Task {
                 @NotNull LocalDate date,
                 boolean isCompleted,
                 String creatorName,
-                User owner,
-                @NotEmpty String category) {
+                User owner) {
         this.name = name;
         this.description = description;
         this.date = date;
         this.isCompleted = isCompleted;
         this.creatorName = creatorName;
         this.owner = owner;
-        this.category = category;
+        
     }
 
     public Long getId() {
@@ -128,14 +125,6 @@ public class Task {
     public void setOwner(User owner) {
         this.owner = owner;
     }
-    
-    public String getCategory() {
-        return category;
-    }
-
-    public void setCategory(String category) {
-        this.category = category;
-    }
 
     @Override
     public boolean equals(Object o) {
@@ -148,12 +137,11 @@ public class Task {
                 description.equals(task.description) &&
                 date.equals(task.date) &&
                 Objects.equals(creatorName, task.creatorName) &&
-                Objects.equals(owner, task.owner) &&
-                category.equals(task.category);
+                Objects.equals(owner, task.owner);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, description, date, isCompleted, creatorName, owner, category);
+        return Objects.hash(id, name, description, date, isCompleted, creatorName, owner);
     }
 }
