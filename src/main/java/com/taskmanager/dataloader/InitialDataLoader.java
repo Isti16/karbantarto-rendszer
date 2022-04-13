@@ -90,8 +90,8 @@ public class InitialDataLoader implements ApplicationListener<ContextRefreshedEv
 
         //1
         taskService.createTask(new Task(
-                "teszt",
-                "Tapolca nagy u 58",
+                "poroltó",
+                "leesett a falról",
                 today.minusDays(40),
                 true,
                 userService.getUserByEmail("manager@mail.com").getName(),
@@ -100,8 +100,8 @@ public class InitialDataLoader implements ApplicationListener<ContextRefreshedEv
 
         //2
         taskService.createTask(new Task(
-                "teszt2 ",
-                "Veszprém pannon u 100",
+                "számítógép ",
+                "nem kapcsol be a számítógép",
                 today.minusDays(30),
                 true,
                 userService.getUserByEmail("manager@mail.com").getName(),

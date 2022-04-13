@@ -29,8 +29,8 @@
                     <th style="width:12%">Dátum</th>
                     <th style="width:8%" class="d-none d-lg-table-cell">Hátralevő napok száma</th>
                     <th style="width:8%">Befejezett</th>
-                    <th style="width:8%" class="d-none d-lg-table-cell">Saját eszköz</th>
-                    <th style="width:8%" class="d-none d-lg-table-cell">Létrehozó</th>
+                    <!-- <th style="width:8%" class="d-none d-lg-table-cell">Saját eszköz</th>
+                    <th style="width:8%" class="d-none d-lg-table-cell">Létrehozó</th>-->
                     <th style="width:16%" class="d-none d-lg-table-cell" colspan="2">Művelet</th>
                 </tr>
 
@@ -56,7 +56,7 @@
                                th:href="${'/task/' + t.id}"
                                class="btn-link d-inline"
                             >
-                            <small class="badge badge-light">+</small>
+                            <small class="badge badge-light"></small>
                             </a>
 
                         </span>
@@ -73,10 +73,10 @@
                                     </button>
                                 </div>
                                 <div class="modal-body">
-                                    <p th:text="${'Description: '+t.description}"></p>
-                                    <p th:text="${'Date: '+#temporals.format(t.date, 'dd-MM-yyyy')}"></p>
-                                    <p th:if="${t.owner!=null}" th:text="${'Task owner: '+t.owner.getName()}"></p>
-                                    <p th:text="${'Task creator: '+t.creatorName}"></p>
+                                    <p th:text="${'Hibaleírása: '+t.description}"></p>
+                                    <p th:text="${'Időpont: '+#temporals.format(t.date, 'dd-MM-yyyy')}"></p>
+                                    <p th:if="${t.owner!=null}" th:text="${'Karbantartó: '+t.owner.getName()}"></p>
+                                    <p th:text="${'Feladat letrehozo: '+t.creatorName}"></p>
                                     <!--edit button-->
                                     <div th:if="${isAdminSigned or isThisOneSigned}" class="d-lg-none m-2">
                                         <a th:href="${'/task/edit/' + t.id}"
@@ -145,14 +145,14 @@
                     </td>
 
                     <!--device owner-->
-                    <td th:if="${t.owner!=null}" class="d-none d-lg-table-cell">
+                 <!--   <td th:if="${t.owner!=null}" class="d-none d-lg-table-cell">
                         <div th:text="${t.owner.getName()}"></div>
                     </td>
 
-                    <td class="text-center" th:unless="${t.owner!=null}">-</td>
+                    <td class="text-center" th:unless="${t.owner!=null}">-</td>-->
 
                     <!--device creator-->
-                    <td th:text="${t.creatorName}" class="d-none d-lg-table-cell"></td>
+                   <!-- <td th:text="${t.creatorName}" class="d-none d-lg-table-cell"></td>-->
 
                     <!--edit button-->
                     <td th:if="${isAdminSigned or isThisOneSigned}" class="d-none d-lg-table-cell">

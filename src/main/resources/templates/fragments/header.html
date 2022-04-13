@@ -14,13 +14,13 @@
                 <!--Tasks list-->
                 <li th:class="${activeTab == 'tasks-list'}? 'active nav-item mr-4' : 'nav-item mr-4'"
                     sec:authorize="isAuthenticated()">
-                    <a class="nav-link" href="/tasks">Eszköz lista</a>
+                    <a class="nav-link" href="/tasks">Feladat lista</a>
                 </li>
 
                 <!--Create New Task-->
                 <li th:class="${activeTab == 'create-new-task'}? 'active nav-item mr-4' : 'nav-item mr-4'"
                     sec:authorize="isAuthenticated()">
-                    <a class="nav-link" href="/task/create">Új eszköz felvétele</a>
+                    <a class="nav-link" href="/task/create">Új feladat készítése</a>
                 </li>
                 
                 <!--Profile-->
