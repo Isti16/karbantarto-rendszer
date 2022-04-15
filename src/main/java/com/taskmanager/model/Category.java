@@ -69,26 +69,6 @@ public class Category {
     public void setCategory(String cat) {
         this.category = cat;
     }
-
-    
-    
-    
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Category cat1 = (Category) o;
-        return Objects.equals(id, cat1.id) &&
-        		category.equals(cat1.category) &&
-        		time.equals(cat1.time)&&
-        		description.equals(cat1.description);
-     
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(id, category,time, description);
-    }
 	
 	
 }
