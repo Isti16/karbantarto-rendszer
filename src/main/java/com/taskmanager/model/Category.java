@@ -3,8 +3,6 @@ package com.taskmanager.model;
 import javax.persistence.*;
 import javax.validation.constraints.Size;
 
-import java.util.Objects;
-
 @Entity
 public class Category {
 
