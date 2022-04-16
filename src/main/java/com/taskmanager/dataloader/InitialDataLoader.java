@@ -8,9 +8,11 @@ import org.springframework.context.ApplicationListener;
 import org.springframework.context.event.ContextRefreshedEvent;
 import org.springframework.stereotype.Component;
 
+import com.taskmanager.model.Education;
 import com.taskmanager.model.Role;
 import com.taskmanager.model.Task;
 import com.taskmanager.model.User;
+import com.taskmanager.service.EducationService;
 import com.taskmanager.service.RoleService;
 import com.taskmanager.service.TaskService;
 import com.taskmanager.service.UserService;
@@ -24,6 +26,7 @@ public class InitialDataLoader implements ApplicationListener<ContextRefreshedEv
     private UserService userService;
     private TaskService taskService;
     private RoleService roleService;
+    private EducationService educationService;
     private final Logger logger = LoggerFactory.getLogger(InitialDataLoader.class);
     private DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
 
@@ -35,10 +38,11 @@ public class InitialDataLoader implements ApplicationListener<ContextRefreshedEv
     private String defaultAdminPassword;
 
     @Autowired
-    public InitialDataLoader(UserService userService, TaskService taskService, RoleService roleService) {
+    public InitialDataLoader(UserService userService, TaskService taskService, RoleService roleService,EducationService eduserv) {
         this.userService = userService;
         this.taskService = taskService;
         this.roleService = roleService;
+        this.educationService=eduserv;
     }
 
     @Override
@@ -48,7 +52,9 @@ public class InitialDataLoader implements ApplicationListener<ContextRefreshedEv
         roleService.createRole(new Role("ADMIN"));
         roleService.createRole(new Role("USER"));
         roleService.findAll().stream().map(role -> "saved role: " + role.getRole()).forEach(logger::info);
-
+        //EDUCATION---------------------------------
+        
+        educationService.createEducation(new Education("Villanyszerelő"));
         //USERS --------------------------------------------------------------------------------------------------------
         //1
         User admin = new User(
