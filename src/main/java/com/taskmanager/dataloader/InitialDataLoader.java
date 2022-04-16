@@ -55,6 +55,7 @@ public class InitialDataLoader implements ApplicationListener<ContextRefreshedEv
         //EDUCATION---------------------------------
         
         educationService.createEducation(new Education("Villanyszerelő"));
+        educationService.createEducation(new Education("Rendszergazda"));
         //USERS --------------------------------------------------------------------------------------------------------
         //1
         User admin = new User(
@@ -64,6 +65,7 @@ public class InitialDataLoader implements ApplicationListener<ContextRefreshedEv
                 );
         userService.createUser(admin);
         userService.changeRoleToAdmin(admin);
+        
 
         //2
         User manager = new User(
@@ -74,10 +76,13 @@ public class InitialDataLoader implements ApplicationListener<ContextRefreshedEv
         userService.changeRoleToAdmin(manager);
 
         //3
-        userService.createUser(new User(
-                "mark@mail.com",
-                "Mark",
-                "112233"));
+       User user1=new User(
+               "mark@mail.com",
+               "Mark",
+               "112233"); 
+    	userService.createUser(user1);
+    	userService.changeEducation(user1);
+    		   
 
         //4
         userService.createUser(new User(

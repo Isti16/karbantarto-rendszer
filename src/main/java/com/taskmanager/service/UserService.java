@@ -8,6 +8,8 @@ public interface UserService {
     User createUser(User user);
 
     User changeRoleToAdmin(User user);
+    
+    User changeEducation(User user);
 
     List<User> findAll();
 
