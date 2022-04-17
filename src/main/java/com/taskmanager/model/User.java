@@ -36,6 +36,12 @@ public class User {
             inverseJoinColumns = @JoinColumn(name = "role_id"))
     private List<Role> roles;
 
+    
+    @ManyToMany(cascade = CascadeType.MERGE)
+    @JoinTable(name="user_education", joinColumns =@JoinColumn(name = "user_id"),inverseJoinColumns = @JoinColumn(name = "edu_id"))
+    private List<Education>edus;
+    
+    
     public List<Task> getTasksCompleted() {
         return tasksOwned.stream()
                 .filter(Task::isCompleted)
@@ -68,12 +74,14 @@ public class User {
                 @NotEmpty String name,
                 @NotEmpty @Length(min = 5) String password,
                 List<Task> tasksOwned,
-                List<Role> roles) {
+                List<Role> roles,
+                List<Education> edu) {
         this.email = email;
         this.name = name;
         this.password = password;
         this.tasksOwned = tasksOwned;
         this.roles = roles;
+        this.edus=edu;
     }
 
     public Long getId() {
@@ -124,6 +132,14 @@ public class User {
         this.roles = roles;
     }
 
+    public List<Education> getEducation() {
+        return edus;
+    }
+
+    public void setEducation(List<Education> ed) {
+        this.edus = ed;
+    }
+    
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -134,11 +150,12 @@ public class User {
                 name.equals(user.name) &&
                 password.equals(user.password) &&
                 Objects.equals(tasksOwned, user.tasksOwned) &&
-                Objects.equals(roles, user.roles);
+                Objects.equals(roles, user.roles)&&
+                Objects.equals(edus, user.edus);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, email, name, password, tasksOwned, roles);
+        return Objects.hash(id, email, name, password, tasksOwned, roles,edus);
     }
 }
