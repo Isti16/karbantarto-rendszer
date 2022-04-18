@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!--/*/ <th:block th:include="fragments/head :: head"></th:block> /*/-->
+    <title>Új eszköz készítése</title>
+</head>
+
+<body>
+
+<header>
+    <!--/*/ <th:block th:include="fragments/header :: header('create-new-category')"></th:block> /*/-->
+</header>
+
+<main class="container">
+    <div class="card mb-3">
+
+        <h1 class="my-highest-header card-header">Új eszköz felvitele</h1>
+
+        <div class="card card-body">
+            <form th:action="@{/device/create}" th:object="${device}" method="post">
+					<input type="hidden" th:field="*{device}"/>
+
+                <!--category-->
+                <div class="form-group">
+                    <label for="device" class="form-control-label"> azonosító:</label>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">
+                                <i class="fas fa-pen"></i>
+                            </span>
+                        </div>
+                        <input type="text" class="form-control"
+                               th:field="*{device}" id="device"/>
+                    </div>
+                    <div class="text text-danger"
+                         th:if="${#fields.hasErrors('device')}" th:errors="*{device}"></div>
+                </div>
+                
+                  <!--name-->
+                <div class="form-group">
+                    <label for="name" class="form-control-label"> name:</label>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">
+                                <i class="fas fa-pen"></i>
+                            </span>
+                        </div>
+                        <input type="text" class="form-control"
+                               th:field="*{name}" id="name"/>
+                    </div>
+                    <div class="text text-danger"
+                         th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></div>
+                </div>
+                
+               <!--location-->
+                <div class="form-group">
+                    <label for="location" class="form-control-label"> name:</label>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">
+                                <i class="fas fa-pen"></i>
+                            </span>
+                        </div>
+                        <input type="text" class="form-control"
+                               th:field="*{location}" id="location"/>
+                    </div>
+                    <div class="text text-danger"
+                         th:if="${#fields.hasErrors('location')}" th:errors="*{location}"></div>
+                </div>
+
+                <input type="submit" value="Küldés" class="btn btn-primary"/>
+            </form>
+        </div>
+    </div>
+</main>
+<footer class="footer">
+    <!--/*/ <th:block th:include="fragments/footer :: footer"></th:block> /*/-->
+</footer>
+
+</body>
+</html>

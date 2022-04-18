@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.ApplicationListener;
 import org.springframework.context.event.ContextRefreshedEvent;
 import org.springframework.stereotype.Component;
-
+import com.taskmanager.model.Device;
 import com.taskmanager.model.Education;
 import com.taskmanager.model.Role;
 import com.taskmanager.model.Task;
@@ -16,6 +16,7 @@ import com.taskmanager.service.EducationService;
 import com.taskmanager.service.RoleService;
 import com.taskmanager.service.TaskService;
 import com.taskmanager.service.UserService;
+import com.taskmanager.service.DeviceService;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -27,6 +28,7 @@ public class InitialDataLoader implements ApplicationListener<ContextRefreshedEv
     private TaskService taskService;
     private RoleService roleService;
     private EducationService educationService;
+    private DeviceService deviceService;
     private final Logger logger = LoggerFactory.getLogger(InitialDataLoader.class);
     private DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
 
@@ -38,11 +40,12 @@ public class InitialDataLoader implements ApplicationListener<ContextRefreshedEv
     private String defaultAdminPassword;
 
     @Autowired
-    public InitialDataLoader(UserService userService, TaskService taskService, RoleService roleService,EducationService eduserv) {
+    public InitialDataLoader(UserService userService, TaskService taskService, RoleService roleService,EducationService eduserv, DeviceService deviceService) {
         this.userService = userService;
         this.taskService = taskService;
         this.roleService = roleService;
         this.educationService=eduserv;
+        this.deviceService = deviceService;
     }
 
     @Override
@@ -56,6 +59,10 @@ public class InitialDataLoader implements ApplicationListener<ContextRefreshedEv
         
         educationService.createEducation(new Education("Villanyszerelő"));
         educationService.createEducation(new Education("Rendszergazda"));
+        //Device----------------------------------------------------------
+    	
+    	deviceService.createDevice(new Device("DH127L","porolto","Veszprém egyetem u 10"));
+    
         //USERS --------------------------------------------------------------------------------------------------------
         //1
         User admin = new User(

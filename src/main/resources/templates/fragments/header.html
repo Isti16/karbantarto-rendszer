@@ -22,7 +22,11 @@
                     sec:authorize="isAuthenticated()">
                     <a class="nav-link" href="/task/create">Új feladat készítése</a>
                 </li>
-                
+                  <!--device-->
+                <li th:class="${activeTab == 'create-new-device'}? 'active nav-item mr-4' : 'nav-item mr-4'"
+                    sec:authorize="isAuthenticated()">
+                    <a class="nav-link" href="/device/create">Új eszköz</a>
+                </li>
                 <!--Profile-->
                 <li th:class="${activeTab == 'profile'}? 'active nav-item mr-4' : 'nav-item mr-4'"
                     sec:authorize="isAuthenticated()">
