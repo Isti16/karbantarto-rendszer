@@ -27,6 +27,15 @@
                     sec:authorize="isAuthenticated()">
                     <a class="nav-link" href="/device/create">Új eszköz</a>
                 </li>
+                
+                 <!--Create New education-->
+                <li th:class="${activeTab == 'create-new-education'}? 'active nav-item mr-4' : 'nav-item mr-4'"
+                    sec:authorize="isAuthenticated()">
+                    <a class="nav-link" href="/education/create">Új végzettség felvétele</a>
+                </li>
+                
+                
+                
                 <!--Profile-->
                 <li th:class="${activeTab == 'profile'}? 'active nav-item mr-4' : 'nav-item mr-4'"
                     sec:authorize="isAuthenticated()">
