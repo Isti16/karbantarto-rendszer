@@ -63,12 +63,14 @@ public class InitialDataLoader implements ApplicationListener<ContextRefreshedEv
         
         educationService.createEducation(new Education("Villanyszerelo"));
         educationService.createEducation(new Education("Rendszergazda"));
+//Category--------------------------------------
+    	
+    	categoryService.createCategory(new Category("Porolto","3 honap","hiba"));
+        
         //Device----------------------------------------------------------
     	
     	deviceService.createDevice(new Device("DH127L","Porolto1","Veszprém egyetem u 10"));
-    	//Category--------------------------------------
     	
-    	categoryService.createCategory(new Category("Porolto","3 honap","hiba"));
         //USERS --------------------------------------------------------------------------------------------------------
         //1
         User admin = new User(
