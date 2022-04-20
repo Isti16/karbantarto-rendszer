@@ -12,11 +12,13 @@ import com.taskmanager.model.Education;
 import com.taskmanager.model.Role;
 import com.taskmanager.model.Task;
 import com.taskmanager.model.User;
+import com.taskmanager.model.Category;
 import com.taskmanager.service.EducationService;
 import com.taskmanager.service.RoleService;
 import com.taskmanager.service.TaskService;
 import com.taskmanager.service.UserService;
 import com.taskmanager.service.DeviceService;
+import com.taskmanager.service.CategoryService;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -29,6 +31,7 @@ public class InitialDataLoader implements ApplicationListener<ContextRefreshedEv
     private RoleService roleService;
     private EducationService educationService;
     private DeviceService deviceService;
+    private CategoryService categoryService;
     private final Logger logger = LoggerFactory.getLogger(InitialDataLoader.class);
     private DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
 
@@ -40,12 +43,13 @@ public class InitialDataLoader implements ApplicationListener<ContextRefreshedEv
     private String defaultAdminPassword;
 
     @Autowired
-    public InitialDataLoader(UserService userService, TaskService taskService, RoleService roleService,EducationService eduserv, DeviceService deviceService) {
+    public InitialDataLoader(UserService userService, TaskService taskService, RoleService roleService,EducationService eduserv, DeviceService deviceService, CategoryService categoryService) {
         this.userService = userService;
         this.taskService = taskService;
         this.roleService = roleService;
         this.educationService=eduserv;
         this.deviceService = deviceService;
+        this.categoryService = categoryService;
     }
 
     @Override
@@ -57,12 +61,14 @@ public class InitialDataLoader implements ApplicationListener<ContextRefreshedEv
         roleService.findAll().stream().map(role -> "saved role: " + role.getRole()).forEach(logger::info);
         //EDUCATION---------------------------------
         
-        educationService.createEducation(new Education("Villanyszerelő"));
+        educationService.createEducation(new Education("Villanyszerelo"));
         educationService.createEducation(new Education("Rendszergazda"));
         //Device----------------------------------------------------------
     	
-    	deviceService.createDevice(new Device("DH127L","porolto","Veszprém egyetem u 10"));
-    
+    	deviceService.createDevice(new Device("DH127L","Porolto1","Veszprém egyetem u 10"));
+    	//Category--------------------------------------
+    	
+    	categoryService.createCategory(new Category("Porolto","3 honap","hiba"));
         //USERS --------------------------------------------------------------------------------------------------------
         //1
         User admin = new User(

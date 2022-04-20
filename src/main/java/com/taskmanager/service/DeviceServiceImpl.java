@@ -15,7 +15,8 @@ import com.taskmanager.repository.DeviceRepository;
 
 @Service
 public class DeviceServiceImpl implements DeviceService{
-
+	private static final String KAT1="Porolto";
+	
 	private DeviceRepository deviceRepository;
 	private CategoryRepository categRepo;
 
@@ -27,7 +28,7 @@ public class DeviceServiceImpl implements DeviceService{
 	 
 	 @Override
 	    public Device createDevice(Device device) {
-		 Category categ = categRepo.findByCategory("porolto");
+		 Category categ = categRepo.findByCategory(KAT1);
 		 device.setCategory(new ArrayList<>(Collections.singletonList(categ)));
 	        return deviceRepository.save(device);
 	    } 

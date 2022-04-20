@@ -19,7 +19,7 @@ import java.util.*;
 public class UserServiceImpl implements UserService {
     private static final String ADMIN="ADMIN";
     private static final String USER="USER";
-    private static final String VILLANY="Villanyszerelő";
+    private static final String VILLANY="Villanyszerelo";
     private static final String RENDGAZD="Rendszergazda";
     
     private EducationRepository eduRepository;
