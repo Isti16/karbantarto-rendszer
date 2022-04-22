@@ -74,6 +74,22 @@
 
                     </div>
                 </div>
+                
+                
+                <div class="form-group">
+                    <label for="status" class="form-control-label">Feladat állapota:</label>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fas fa-pen"></i></span>
+                        </div>
+                        <input type="text" class="form-control"
+                               th:field="*{status}" id="status"/>
+                    </div>
+                    <div class="text text-danger"
+                         th:if="${#fields.hasErrors('status')}" th:errors="*{status}">
+
+                    </div>
+                </div>
 
                 <input type="submit" value="Küldés" class="btn btn-primary"/>
                 <button type="reset" class="btn btn-outline-primary pull-right ml-3">Alaphelyzetbe állítás</button>

@@ -28,6 +28,7 @@
                     <th style="width:40%" class="text-left">Eszköz neve</th>
                     <th style="width:12%">Dátum</th>
                     <th style="width:8%" class="d-none d-lg-table-cell">Hátralevő napok száma</th>
+                    <th style="width:15%;">Feladat állapota:</th>
                     <th style="width:8%">Befejezett</th>
                     <!-- <th style="width:8%" class="d-none d-lg-table-cell">Saját eszköz</th>
                     <th style="width:8%" class="d-none d-lg-table-cell">Létrehozó</th>-->
@@ -77,6 +78,7 @@
                                     <p th:text="${'Időpont: '+#temporals.format(t.date, 'dd-MM-yyyy')}"></p>
                                     <p th:if="${t.owner!=null}" th:text="${'Karbantartó: '+t.owner.getName()}"></p>
                                     <p th:text="${'Feladat letrehozo: '+t.creatorName}"></p>
+                                    <p th:text="${'Állapot: '+t.status}"></p>
                                     <!--edit button-->
                                     <div th:if="${isAdminSigned or isThisOneSigned}" class="d-lg-none m-2">
                                         <a th:href="${'/task/edit/' + t.id}"
@@ -123,6 +125,23 @@
                         th:data-order="${t.date}">
                         <!--/*/ <th:block th:include="fragments/days-left-until-deadline :: daysLeft(${t})"></th:block> /*/-->
                     </td>
+
+
+					<!--status-->
+                    <td class="text-left">
+                        <span>
+                            <p data-toggle="modal" data-target="#modal-details"
+                               th:attr="data-target='#modal-details'+${t.id}"
+                               th:href="${'/task/' + t.id}"
+                               class="nav-link my-link px-1 d-inline"
+                               th:text="${t.status}+' '"
+                            >
+                            <small class="badge badge-light"></small>
+                            </p>
+
+                        </span>
+                    </td>
+
 
                     <!--Completed / In progress-->
                     <td th:data-order="${t.completed} ? 1 : 0"

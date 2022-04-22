@@ -33,6 +33,8 @@ public class Task {
     @ManyToOne
     @JoinColumn(name = "OWNER_ID")
     private User owner;
+    @Size(max = 1200, message = "{task.status.size}")
+    private String status;
 
 
     public long daysLeftUntilDeadline(LocalDate date) {
@@ -46,12 +48,14 @@ public class Task {
                 @NotEmpty @Size(max = 1200) String description,
                 @NotNull LocalDate date,
                 boolean isCompleted,
-                String creatorName) {
+                String creatorName,
+                String status) {
         this.name = name;
         this.description = description;
         this.date = date;
         this.isCompleted = isCompleted;
         this.creatorName = creatorName;
+        this.status = status;
       
     }
 
@@ -60,13 +64,15 @@ public class Task {
                 @NotNull LocalDate date,
                 boolean isCompleted,
                 String creatorName,
-                User owner) {
+                User owner,
+                String status) {
         this.name = name;
         this.description = description;
         this.date = date;
         this.isCompleted = isCompleted;
         this.creatorName = creatorName;
         this.owner = owner;
+        this.status = status;
         
     }
 
@@ -125,6 +131,14 @@ public class Task {
     public void setOwner(User owner) {
         this.owner = owner;
     }
+    
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
 
     @Override
     public boolean equals(Object o) {
@@ -137,11 +151,12 @@ public class Task {
                 description.equals(task.description) &&
                 date.equals(task.date) &&
                 Objects.equals(creatorName, task.creatorName) &&
-                Objects.equals(owner, task.owner);
+                Objects.equals(owner, task.owner)&&
+                status.equals(task.status);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, description, date, isCompleted, creatorName, owner);
+        return Objects.hash(id, name, description, date, isCompleted, creatorName, owner,status);
     }
 }

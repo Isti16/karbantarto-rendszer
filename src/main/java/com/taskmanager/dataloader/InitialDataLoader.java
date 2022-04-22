@@ -121,7 +121,8 @@ public class InitialDataLoader implements ApplicationListener<ContextRefreshedEv
                 today.minusDays(40),
                 true,
                 userService.getUserByEmail("manager@mail.com").getName(),
-                userService.getUserByEmail("manager@mail.com")
+                userService.getUserByEmail("manager@mail.com"),
+                "Befejezve"
         ));
 
         //2
@@ -131,7 +132,8 @@ public class InitialDataLoader implements ApplicationListener<ContextRefreshedEv
                 today.minusDays(30),
                 true,
                 userService.getUserByEmail("manager@mail.com").getName(),
-                userService.getUserByEmail("manager@mail.com")
+                userService.getUserByEmail("manager@mail.com"),
+                "Folyamatban"
         ));
 
       
