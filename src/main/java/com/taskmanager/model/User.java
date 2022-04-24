@@ -18,9 +18,7 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "user_id")
     private Long id;
-    @Email(message = "{user.email.not.valid}")
     @NotEmpty(message = "{user.email.not.empty}")
-    @Column(unique = true)
     private String email; 
     @NotEmpty(message = "{user.name.not.empty}")
     private String name;
@@ -62,7 +60,7 @@ public class User {
     public User() {
     }
 
-    public User(@Email @NotEmpty String email,
+    public User( @NotEmpty String email,
                 @NotEmpty String name,
                 @NotEmpty @Length(min = 5) String password) {
         this.email = email;
@@ -70,7 +68,7 @@ public class User {
         this.password = password;
     }
 
-    public User(@Email @NotEmpty String email,
+    public User( @NotEmpty String email,
                 @NotEmpty String name,
                 @NotEmpty @Length(min = 5) String password,
                 List<Task> tasksOwned,

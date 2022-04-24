@@ -40,6 +40,12 @@
                     <a class="nav-link" href="/category/create">Új kategória felvétele</a>
                 </li>
                 
+                 <!--Create New user-->
+                <li th:class="${activeTab == 'create-new-user'}? 'active nav-item mr-4' : 'nav-item mr-4'"
+                    sec:authorize="isAuthenticated()">
+                    <a class="nav-link" href="/user/create">Új karbantartó</a>
+                </li>
+                
                 <!--Profile-->
                 <li th:class="${activeTab == 'profile'}? 'active nav-item mr-4' : 'nav-item mr-4'"
                     sec:authorize="isAuthenticated()">
