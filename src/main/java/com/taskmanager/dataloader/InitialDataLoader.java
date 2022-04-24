@@ -114,13 +114,13 @@ public class InitialDataLoader implements ApplicationListener<ContextRefreshedEv
 
         LocalDate today = LocalDate.now();
 
-        //1
+      //1
         taskService.createTask(new Task(
                 "poroltó",
-                "leesett a falról",
-                today.minusDays(40),
+                "Leszakadt a falról a porolto",
+                today.minusDays(-40),
                 true,
-                userService.getUserByEmail("manager@mail.com").getName(),
+                userService.getUserByEmail("admin@mail.com").getName(),
                 userService.getUserByEmail("manager@mail.com"),
                 "Befejezve"
         ));
@@ -128,11 +128,43 @@ public class InitialDataLoader implements ApplicationListener<ContextRefreshedEv
         //2
         taskService.createTask(new Task(
                 "számítógép ",
-                "nem kapcsol be a számítógép",
+                "Nem kapcsol be a számítógép",
+                today.minusDays(-15),
+                false,
+                userService.getUserByEmail("admin@mail.com").getName(),
+                userService.getUserByEmail("mark@mail.com"),
+                "Folyamatban"
+        ));
+
+        
+      //3
+        taskService.createTask(new Task(
+                "Tűzjelző ",
+                "Ellenőrzés",
+                today.minusDays(-30),
+                false,
+                userService.getUserByEmail("admin@mail.com").getName(),
+                userService.getUserByEmail("manager@mail.com"),
+                "Folyamatban"
+        ));
+      //4
+        taskService.createTask(new Task(
+                "Lámpa ",
+                "Kiégett.",
                 today.minusDays(30),
                 true,
-                userService.getUserByEmail("manager@mail.com").getName(),
-                userService.getUserByEmail("manager@mail.com"),
+                userService.getUserByEmail("admin@mail.com").getName(),
+                userService.getUserByEmail("ann@mail.com"),
+                "Folyamatban"
+        ));
+      //5
+        taskService.createTask(new Task(
+                "Mozgásérzékelő ",
+                "Nem működik",
+                today.minusDays(-30),
+                false,
+                userService.getUserByEmail("admin@mail.com").getName(),
+                userService.getUserByEmail("ann@mail.com"),
                 "Folyamatban"
         ));
 
