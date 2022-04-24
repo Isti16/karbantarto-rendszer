@@ -155,7 +155,7 @@ public class InitialDataLoader implements ApplicationListener<ContextRefreshedEv
                 true,
                 userService.getUserByEmail("admin@mail.com").getName(),
                 userService.getUserByEmail("ann@mail.com"),
-                "Folyamatban"
+                "Befejezve"
         ));
       //5
         taskService.createTask(new Task(
