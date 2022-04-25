@@ -65,7 +65,7 @@ public class InitialDataLoader implements ApplicationListener<ContextRefreshedEv
         educationService.createEducation(new Education("Rendszergazda"));
 //Category--------------------------------------
     	
-    	categoryService.createCategory(new Category("Porolto","3 honap","hiba"));
+    	categoryService.createCategory(new Category("Porolto","3 óra","3 hónap","hiba"));
         
         //Device----------------------------------------------------------
     	
