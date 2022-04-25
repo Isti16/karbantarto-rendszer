@@ -23,6 +23,12 @@ public class Category {
 	@Column(name = "time")
 	    private String time;
 	
+	@Size(max = 1200, message = "{task.peroid.size}")
+	@Column(name = "period")
+	    private String period;
+	
+	
+	
 	@Size(max = 1200, message = "{task.description.size}")
 	@Column(name = "desc")
 	    private String description;
@@ -33,15 +39,17 @@ public class Category {
     public Category() {
     }
 
-    public Category(String cat, String time, String description) {
+    public Category(String cat, String time,String period,  String description) {
         this.category=cat;
         this.time = time;
         this.description = description;
+        this.period=period;
     }
 
-    public Category(String cat, String time, String description,List<Device> dev) {
+    public Category(String cat, String time, String period, String description,List<Device> dev) {
         this.category = cat;       
         this.time = time;
+        this.period=period;
         this.description = description;
         this.dev=dev;
      
@@ -63,6 +71,18 @@ public class Category {
     public void setTime(String time) {
         this.time = time;
     }
+    
+    
+    public String getPeriod() {
+        return period;
+    }
+    
+    public void setPeriod(String period) {
+        this.period = period;
+    }
+    
+    
+    
     
     public String getDescription() {
         return description;
@@ -96,6 +116,7 @@ public class Category {
         result = prime * result + ((description == null) ? 0 : description.hashCode());
         result = prime * result + ((id == null) ? 0 : id.hashCode());
         result = prime * result + ((time == null) ? 0 : time.hashCode());
+        result = prime * result + ((period == null) ? 0 : period.hashCode());
         result = prime * result + ((dev == null) ? 0 : dev.hashCode());
         return result;
     }
@@ -130,6 +151,13 @@ public class Category {
         } else if (!time.equals(other.time))
             return false;
         
+        if (period == null) {
+            if (other.period != null)
+                return false;
+        } else if (!period.equals(other.period))
+            return false;
+        
+     
         if(dev==null) {
         	if(other.dev !=null)
         		return false;

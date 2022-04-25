@@ -52,6 +52,23 @@
                          th:if="${#fields.hasErrors('time')}" th:errors="*{time}"></div>
                 </div>
                 
+
+                
+                 <!--period-->
+                <div class="form-group">
+                    <label for="period" class="form-control-label">Karbantartási periódus:</label>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">
+                                <i class="fas fa-pen"></i>
+                            </span>
+                        </div>
+                        <input type="text" class="form-control"
+                               th:field="*{period}" id="period"/>
+                    </div>
+                    <div class="text text-danger"
+                         th:if="${#fields.hasErrors('period')}" th:errors="*{period}"></div>
+                </div>
                 
                 <!--desc-->
                 <div class="form-group">
