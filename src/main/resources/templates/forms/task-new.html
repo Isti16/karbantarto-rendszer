@@ -16,7 +16,7 @@
 <main class="container">
     <div class="card mb-3">
 
-        <h1 class="my-highest-header card-header">Új eszköz felvitele</h1>
+        <h1 class="my-highest-header card-header">Új feladat felvitele</h1>
 
         <div class="card card-body">
             <form th:action="@{/task/create}" th:object="${task}" method="post">
@@ -25,7 +25,7 @@
 
                 <!--name-->
                 <div class="form-group">
-                    <label for="name" class="form-control-label">Eszköz neve</label>
+                    <label for="name" class="form-control-label">feladat neve</label>
                     <div class="input-group mb-3">
                         <div class="input-group-prepend">
                             <span class="input-group-text">
