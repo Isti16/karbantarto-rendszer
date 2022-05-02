@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      lang="en">
+<head>
+    <!--/*/ <th:block th:include="fragments/head :: head"></th:block> /*/-->
+    <title>Karbantartók Lista</title>
+</head>
+
+<body>
+
+<header>
+   <!--/*/ <th:block th:include="fragments/header :: header('users-list')"></th:block> /*/-->
+</header>
+
+<main class="container">
+    <div class="card mb-3">
+
+        <h1 class="my-highest-header card-header">Karbantartók Lista</h1>
+
+        <div class="card card-body">
+            <table  cellpadding=5>
+
+                <thead class="table-info">
+                <tr align="center" >
+                    <th >Név</th>
+                    <th class="d-none d-lg-table-cell">Email</th>            
+                </tr>
+                </thead>
+
+                <tbody>
+                <tr th:each="user:${users}" align="center">
+
+                    <!-- & name-->
+                    <td>
+                        
+                        <div th:text="${user.name}" class=" d-inline ml-1"></div>
+                    </td>
+
+                    <!--Email-->
+                    <td th:text="${user.email}" class="d-none d-lg-table-cell"></td>
+
+                    
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</main>
+
+<footer class="footer">
+    <!--/*/ <th:block th:include="fragments/footer :: footer"></th:block> /*/-->
+</footer>
+
+<!--remain scroll position after redirect-->
+<script src="js/main.js"></script>
+
+</body>
+</html>
