@@ -21,15 +21,15 @@ import java.security.Principal;
 @Controller
 public class UserController {
 
-    private CategoryService categoryService;
+   
     private UserService userService;
-    private TaskService taskService;
+   
 
     @Autowired
-    public UserController( CategoryService categoryService, UserService userService, TaskService taskService) {
-        this.categoryService = categoryService;
+    public UserController( UserService userService) {
+       
         this.userService = userService;
-        this.taskService = taskService;
+       
     }
 
     @GetMapping("/user/create")
@@ -50,5 +50,14 @@ public class UserController {
         return "redirect:/profile";
     }
 
+    @GetMapping("/users")
+    public String listUsers(Model model, SecurityContextHolderAwareRequestWrapper request) {
+        boolean isAdminSigned = request.isUserInRole("ROLE_ADMIN");
 
+        model.addAttribute("users", userService.findAll());
+        model.addAttribute("isAdminSigned", isAdminSigned);
+        return "views/users";
+    }
+
+    
 }
