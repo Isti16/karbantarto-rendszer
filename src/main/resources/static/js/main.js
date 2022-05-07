@@ -43,3 +43,8 @@ $(document).ready(function () {
         $("#password").val("112233");
     });
 });
+
+function showpassword(){
+    var x = document.getElementById("password");
+    x.type==="password"?x.type="text":x.type="password";
+}

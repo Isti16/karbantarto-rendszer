@@ -1530,6 +1530,7 @@ input[type="button"].btn-block {
 .nav-link {
     display: block;
     padding: 0.5rem 2rem;
+    text-align: center;
 }
 
 .nav-link:hover, .nav-link:focus {
@@ -2183,4 +2184,23 @@ input[type="button"].btn-block {
     .float-lg-none {
         float: none !important;
     }
+}
+
+a{
+    text-decoration: none;
+}
+
+a.nav-link:hover{
+    color: rgb(40, 2, 32);
+}
+
+.btn-primary{
+    background-color: #bbb;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.fa, .fas, .far{
+    margin-left: 5px;
+    margin-right: 5px;
 }

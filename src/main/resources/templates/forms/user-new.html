@@ -63,8 +63,13 @@
                                 <i class="fas fa-pen"></i>
                             </span>
                         </div>
-                        <input type="text" class="form-control"
+                        <input type="password" class="form-control"
                                th:field="*{password}" id="password"/>
+                        <div class="input-group-append">
+                        <span class="input-group-text my-append-eye" onclick="showpw()">
+                            <i class="far fa-eye show-password"></i>
+                        </span>
+                        </div>
                     </div>
                     <div class="text text-danger"
                          th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></div>
@@ -78,6 +83,11 @@
 <footer class="footer">
     <!--/*/ <th:block th:include="fragments/footer :: footer"></th:block> /*/-->
 </footer>
-
+<script>   
+function showpw(){
+    var x = document.getElementById("password");
+    x.type==="password"?x.type="text":x.type="password";
+}
+</script>
 </body>
 </html>
