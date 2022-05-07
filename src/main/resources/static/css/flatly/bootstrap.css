@@ -1889,10 +1889,6 @@ input[type="button"].btn-block {
     flex-direction: column;
 }
 
-.card-deck .card {
-    margin-bottom: 15px;
-}
-
 
 .card-group {
     display: -webkit-box;
@@ -2203,4 +2199,33 @@ a.nav-link:hover{
 .fa, .fas, .far{
     margin-left: 5px;
     margin-right: 5px;
+}
+
+a.btn.text-left {
+    border-radius: 25px;
+    border: 2px solid #bbb;
+    padding: 5px;
+    margin:5px;
+}
+
+a.btn.text-left:hover{
+    background-color: #ddd;
+}
+
+a.btn.text-left:focus, a.btn.text-left:active{
+    background-color: #bbb;
+    border-color: #bbb;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+
+li.nav-item.mr-4{
+    border-radius: 25px;
+    border: 2px solid #bbb;
+    padding: 5px;
+    margin:5px;
+}
+
+li.active.nav-item.mr-4{
+    background-color:#ddd;
 }
