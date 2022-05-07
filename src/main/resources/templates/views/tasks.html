@@ -25,10 +25,11 @@
 
                 <thead class="table-primary">
                 <tr>
-                    <th style="width:40%" class="text-left">Eszköz neve</th>
+                    <th style="width:30%" class="text-left">Eszköz neve</th>
                     <th style="width:12%">Dátum</th>
                     <th style="width:8%" class="d-none d-lg-table-cell">Hátralevő napok száma</th>
-                    <th style="width:15%;">Feladat állapota:</th>
+                    <th style="width:15%;">Instrukció</th>
+                    <th style="width:10%;">Feladat állapota</th>
                     <th style="width:8%">Befejezett</th>
                     <!-- <th style="width:8%" class="d-none d-lg-table-cell">Saját eszköz</th>
                     <th style="width:8%" class="d-none d-lg-table-cell">Létrehozó</th>-->
@@ -124,6 +125,18 @@
                     <td class="text-center col-1 d-none d-lg-table-cell"
                         th:data-order="${t.date}">
                         <!--/*/ <th:block th:include="fragments/days-left-until-deadline :: daysLeft(${t})"></th:block> /*/-->
+                    </td>
+
+                    <td class="text-left">
+                        <span th:if="${t.status == 'Megkezdve'}">
+                            <a data-toggle="modal" data-target="#modal-details"
+                               th:attr="data-target='#modal-details'+${t.id}"
+                               th:text="${t.description}+' '"
+                            ></a>
+                            <small class="badge badge-light"></small>
+                            </a>
+
+                        </span>
                     </td>
 
 
