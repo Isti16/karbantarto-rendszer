@@ -2208,11 +2208,11 @@ a.btn.text-left {
     margin:5px;
 }
 
-a.btn.text-left:hover{
-    background-color: #ddd;
+a.btn.text-left:hover, li.nav-item.mr-4:hover{
+    background-color: #eaeaea;
 }
 
-a.btn.text-left:focus, a.btn.text-left:active{
+a.btn.text-left:focus, a.btn.text-left:active, li.nav-item.mr-4:focus, li.nav-item.mr-4:active{
     background-color: #bbb;
     border-color: #bbb;
     -webkit-box-shadow: none;
@@ -2227,5 +2227,5 @@ li.nav-item.mr-4{
 }
 
 li.active.nav-item.mr-4{
-    background-color:#ddd;
+    background-color:#cecece;
 }
